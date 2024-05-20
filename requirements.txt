@@ -1,0 +1,11 @@
+flask==3.0.3
+flask-login==0.6.3
+python_decouple==3.8
+flask-bcrypt==1.0.1
+flask-migrate==4.0.7
+flask-sqlalchemy==3.1.1
+flask-swagger==0.2.14
+flask-wtf==1.2.1
+email_validator==2.1.1
+flask-testing==0.8.1
+python-lokalise-api==2.3.0

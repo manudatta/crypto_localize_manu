@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <main class="form-signin w-100 m-auto">
+            {% block content %}
+            {% if tasks %}
+            <h1 class="text-center">Tasks</h1>
+            <ol>
+                {% for task in tasks.items %}
+                <li>{{ task.title }}</li>
+                {% endfor %}
+            </ol>
+            {%else %}
+                <h1 class="text-center">No tasks so far</h1>
+            {% endif %}
+            <form role="form" method="post" action="">
+                {{ form.csrf_token }}
+                <h1 class="h3 mb-3 fw-normal text-center">Create task</h1>
+
+                <div class="form-floating">
+                    {{ form.title(placeholder="title", class="form-control mb-2") }}
+                    {{ form.title.label }}
+                    {% if form.title.errors %}
+                    {% for error in form.title.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="form-floating">
+                    {{ form.target_language(placeholder="target_language", class="form-control mb-2") }}
+                    {{ form.target_language.label }}
+                    {% if form.target_language.errors %}
+                    {% for error in form.target_language.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Create new task</button>
+            </form>
+            {% endblock %}
+        </main>
+    </div>
+    <div class="col-md-4"></div>
+</div>
